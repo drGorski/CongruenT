@@ -1,0 +1,22 @@
+package testSC;
+
+import java.util.ArrayList;
+import congruenT.AbstractTransaction;
+import congruenT.AbstractConfigSC;
+/************************************
+ *  Author: Tomasz Górski
+ *  e-mail: tomasz.gorski@ieee.org
+ ************************************/
+public abstract class AbstractTestConfigSC {
+    protected ArrayList<ArrayList<AbstractTransaction>> transactions = new ArrayList<>();
+    public AbstractTestConfigSC(){
+        initiateTransactions();
+    }
+    protected abstract void initiateTransactions();
+    protected void runTest(AbstractConfigSC sC, AbstractTransaction tR, int trNumber, boolean expectedResult){
+        boolean result = sC.checkSC(tR);
+        boolean correct = result == expectedResult;
+        System.out.println("Test no: " + (trNumber + 1) + ", transaction: " + tR.getClass().getTypeName() + ", result: " + ((correct)?"PASS":"FAIL"));
+    }
+    public abstract void runTestSuite(AbstractConfigSC sC);
+}
