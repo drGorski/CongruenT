@@ -33,7 +33,7 @@ A specific smart contract contains a single list of verification rule objects an
 
 ## Illustrative example
 
-The ``ExchangeEnergyContract`` was implemented as an example of a smart contract validating multiple transaction types. The smart contract validates the following transaction classes: TransactionIn, TransactionGrid, and TransactionCross.
+The ``ExchangeEnergyContract`` was implemented as an example of a smart contract validating multiple transaction types. The smart contract validates the following transaction classes: ``TransactionIn``, ``TransactionGrid``, and ``TransactionCross``.
 
 Six classes of verification rules have been created, which are needed in the ``ExchangeEnergyContract`` smart contract class:
 * ``QuantityGreaterThanZero`` class --- a verification rule that checks whether the energy quantity is greater than zero,
@@ -47,3 +47,8 @@ The figure below presents the UML Class diagram showing the concrete smart contr
 <p align="center">
   <img src="UML-Class-diagram-concreteSC.png" alt="UML Class diagram - concrete smart contract" width="700">
 </p>
+
+For each type of transaction, a different set of verification rules is checked, managed by the appropriate configuration.
+For transaction type ``TransactionIn``, the following rules are checked: ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``.
+Moreover, for transaction type ``TransactionGrid``, the following rules are examined: ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``, ``TargetEqualsGrid``.
+Whereas for transaction type ``TransactionCross``, the following rules are verified: ``SourceAndTargetCommunitiesDiffer``, ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``, ``TargetNeedGreaterEqualQuantity``.
