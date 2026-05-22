@@ -55,3 +55,13 @@ For transaction type ``TransactionIn``, the following rules are checked: ``Sourc
 Moreover, for transaction type ``TransactionGrid``, the following rules are examined: ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``, ``TargetEqualsGrid``.
 
 Whereas for transaction type ``TransactionCross``, the following rules are verified: ``SourceAndTargetCommunitiesDiffer``, ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``, ``TargetNeedGreaterEqualQuantity``.
+
+## Tests
+
+Using the SmarTS v2.0 package, for the ``ExchangeEnergyContract`` smart contract class, the ``TestExchangeEnergySC`` testing class was implemented, which inherits from the ``AbstractTestConfigSC`` class. The ``TestExchangeEnergySC`` class implements the ``initiateTransactions()`` method, which invokes all the necessary transaction classes to test all types of verified transactions. According to the ``k+1`` testing method, for a smart contract with k verification rules, k+1 test transactions must be prepared. For each transaction type, one test transaction contains correct values for all verification rules. The next k transactions contain correct values for k-1 verification rules and one incorrect value for one verification rule. In each of these k test transactions, a different parameter is set to an incorrect value to test each verification rule individually. In the case of the ``ExchangeEnergyContract`` smart contract, there are three transaction types with the following numbers of verification rules: TransactionIn - 3, TransactionCross - 4, TransactionGrid - 5. Therefore, a total of 15 test transactions was prepared.
+
+## Running the Example
+
+The package and example were implemented in IntelliJ IDEA Community Edition.
+
+To test the smart contract's functionality for the three transaction types under consideration, run the ``RunTestSuite`` class.
