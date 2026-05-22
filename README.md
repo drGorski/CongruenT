@@ -26,3 +26,24 @@ The figure below shows the UML Sequence diagram for the ``checkSC()`` method inv
 <p align="center">
   <img src="UML-Sequence-diagram.png" alt="UML Class diagram" width="400">
 </p>
+
+In the abstract layer, an implementation of the ``checkSC()`` method for an abstract transaction and a single configuration is provided. For a single configuration, no additional implementation of this method is required in actual smart contracts. For multiple configurations, you need to overload the ``checkSC()`` method in the specific smart contract class for additional verification rule configurations. 
+
+A specific smart contract contains a single list of verification rule objects and a list of configurations for each transaction type supported by that smart contract. The smart contract's execution for the basic transaction type is performed using methods implemented in an abstract class. Support for additional transaction types is implemented using overloaded methods in the specific smart contract. The flow of transaction validation is as follows. Calling the ``checkSC()`` method with a transaction as a parameter selects the overloaded ``checkSC()`` method appropriate for the object type of that transaction. The polymorphism feature of the object-oriented approach is used. The list of verification rules for the considered transaction type is then iterated, and the ``runRule()`` method is called on each of the verification rule objects in that configuration.
+
+## Illustrative example
+
+The ``ExchangeEnergyContract`` was implemented as an example of a smart contract validating multiple transaction types. The smart contract validates the following transaction classes: TransactionIn, TransactionGrid, and TransactionCross.
+
+Six classes of verification rules have been created, which are needed in the ``ExchangeEnergyContract`` smart contract class:
+* ``QuantityGreaterThanZero`` class --- a verification rule that checks whether the energy quantity is greater than zero,
+* ``SourceAndTargetCommunitiesDiffer`` class --- a verification rule that checks whether the source and the target communities are different,
+* ``SourceDiffersFromTarget`` class --- a verification rule that checks whether the source and the target are different,
+* ``SourceSurplusGreaterEqualQuantity`` class --- a verification rule that checks whether the source surplus is greater than or equal to the energy quantity,
+* ``TargetEqualsGrid`` class --- a verification rule that checks whether the target is the energy grid,
+* ``TargetNeedGreaterEqualQuantity`` class --- a verification rule that checks whether the target energy need is greater than or equal to the energy quantity.
+
+The figure below presents the UML Class diagram showing the concrete smart contract with verification rule classes.
+<p align="center">
+  <img src="UML-Class-diagram-concreteSC.png" alt="UML Class diagram - concrete smart contract" width="400">
+</p>
