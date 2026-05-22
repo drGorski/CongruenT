@@ -45,5 +45,5 @@ Six classes of verification rules have been created, which are needed in the ``E
 
 The figure below presents the UML Class diagram showing the concrete smart contract with verification rule classes.
 <p align="center">
-  <img src="UML-Class-diagram-concreteSC.png" alt="UML Class diagram - concrete smart contract" width="400">
+  <img src="UML-Class-diagram-concreteSC.png" alt="UML Class diagram - concrete smart contract" width="700">
 </p>
