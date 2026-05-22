@@ -49,6 +49,9 @@ The figure below presents the UML Class diagram showing the concrete smart contr
 </p>
 
 For each type of transaction, a different set of verification rules is checked, managed by the appropriate configuration.
+
 For transaction type ``TransactionIn``, the following rules are checked: ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``.
+
 Moreover, for transaction type ``TransactionGrid``, the following rules are examined: ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``, ``TargetEqualsGrid``.
+
 Whereas for transaction type ``TransactionCross``, the following rules are verified: ``SourceAndTargetCommunitiesDiffer``, ``SourceDiffersFromTarget``, ``QuantityGreaterThanZero``, ``SourceSurplusGreaterEqualQuantity``, ``TargetNeedGreaterEqualQuantity``.
