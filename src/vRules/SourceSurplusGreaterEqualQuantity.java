@@ -9,12 +9,8 @@ import sContracts.Transaction;
  ************************************/
 public final class SourceSurplusGreaterEqualQuantity implements VerificationRule {
     public boolean runRule(AbstractTransaction t){
-        if (((Transaction) t).getSourceSurplus() >= ((Transaction) t).getQuantity()) {
-            System.out.println("TRUE - SourceSurplusGreaterEqualQuantity");
-            return true;
-        } else {
-            System.out.println("FALSE - SourceSurplusGreaterEqualQuantity");
-            return false;
-        }
+        boolean result = ((Transaction) t).getSourceSurplus() >= ((Transaction) t).getQuantity();
+        System.out.println(result + " - " + this.getClass().getTypeName());
+        return result;
     }
 }

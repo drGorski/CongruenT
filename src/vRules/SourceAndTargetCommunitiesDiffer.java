@@ -2,6 +2,7 @@ package vRules;
 
 import congruenT.AbstractTransaction;
 import congruenT.VerificationRule;
+import sContracts.Transaction;
 import sContracts.TransactionCross;
 /************************************
  *  Author: Tomasz Górski
@@ -9,12 +10,8 @@ import sContracts.TransactionCross;
  ************************************/
 public final class SourceAndTargetCommunitiesDiffer implements VerificationRule {
     public boolean runRule(AbstractTransaction t){
-        if (((TransactionCross) t).getSourceCommunityID() != ((TransactionCross) t).getTargetCommunityID()) {
-            System.out.println("TRUE - SourceAndTargetCommunitiesDiffer");
-            return true;
-        } else {
-            System.out.println("FALSE - SourceAndTargetCommunitiesDiffer");
-            return false;
-        }
+        boolean result = ((TransactionCross) t).getSourceCommunityID() != ((TransactionCross) t).getTargetCommunityID();
+        System.out.println(result + " - " + this.getClass().getTypeName());
+        return result;
     }
 }

@@ -4,6 +4,6 @@ package congruenT;
  *  e-mail: tomasz.gorski@ieee.org
  ************************************/
 public interface VerificationRule {
-    boolean runRule(AbstractTransaction tr);
+    public abstract boolean runRule(AbstractTransaction tr);
 }
 

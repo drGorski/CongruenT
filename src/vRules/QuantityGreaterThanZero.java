@@ -9,12 +9,8 @@ import sContracts.Transaction;
  ************************************/
 public final class QuantityGreaterThanZero implements VerificationRule {
     public boolean runRule(AbstractTransaction t){
-        if (((Transaction) t).getQuantity() > 0) {
-            System.out.println("TRUE - QuantityGreaterThanZero");
-            return true;
-        } else {
-            System.out.println("FALSE - QuantityGreaterThanZero");
-            return false;
-        }
+        boolean result = ((Transaction) t).getQuantity() > 0;
+        System.out.println(result + " - " + this.getClass().getTypeName());
+        return result;
     }
 }
