@@ -31,6 +31,8 @@ In the abstract layer, an implementation of the ``checkSC()`` method for an abst
 
 A specific smart contract contains a single list of verification rule objects and a list of configurations for each transaction type supported by that smart contract. The smart contract's execution for the basic transaction type is performed using methods implemented in an abstract class. Support for additional transaction types is implemented using overloaded methods in the specific smart contract. The flow of transaction validation is as follows. Calling the ``checkSC()`` method with a transaction as a parameter selects the overloaded ``checkSC()`` method appropriate for the object type of that transaction. The polymorphism feature of the object-oriented approach is used. The list of verification rules for the considered transaction type is then iterated, and the ``runRule()`` method is called on each of the verification rule objects in that configuration.
 
+Generally, as a result of running the ``checkSC()`` method, a logical value of true or false is obtained, indicating whether the conditions for executing the transaction are met or not.
+
 ## Illustrative example
 
 The ``ExchangeEnergyContract`` was implemented as an example of a smart contract validating multiple transaction types. The smart contract validates the following transaction classes: ``TransactionIn``, ``TransactionGrid``, and ``TransactionCross``.
@@ -65,3 +67,8 @@ Using the SmarTS v2.0 package, for the ``ExchangeEnergyContract`` smart contract
 The package and example were implemented in IntelliJ IDEA Community Edition.
 
 To test the smart contract's functionality for the three transaction types under consideration, run the ``RunTestSuite`` class.
+
+The figure below shows the results of executing the test suite for the ``ExchangeEnergyContract`` smart contract, verifying the ``TransactionIn`` and ``TransactionGrid`` transaction types.
+<p align="center">
+  <img src="RunTestSuite.png" alt="Test results" width="400">
+</p>
