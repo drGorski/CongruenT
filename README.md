@@ -69,6 +69,9 @@ The package and example were implemented in IntelliJ IDEA Community Edition.
 To test the smart contract's functionality for the three transaction types under consideration, run the ``RunTestSuite`` class.
 
 The figure below shows the results of executing the test suite for the ``ExchangeEnergyContract`` smart contract, verifying the ``TransactionIn`` and ``TransactionGrid`` transaction types.
+
 <p align="center">
   <img src="RunTestSuite.png" alt="Test results" width="400">
 </p>
+
+The tests run all test cases for all transaction types verified by the ``ExchangeEnergyContract`` smart contract. The figure above shows only a fragment of the test execution for the ``TransactionIn`` and ``TransactionGrid`` transaction kinds. The entire execution outcome includes test results for all transaction types, including the ``TransactionCross`` transaction type.
